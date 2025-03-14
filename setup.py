@@ -312,9 +312,9 @@ class CMakeBuild(BuildExtension):
             if cpu_count is None:
                 cpu_count = 1
             if hasattr(self, "parallel") and self.parallel:
-                build_args += [f"--parallel={self.parallel}"]
+                build_args += [f"--parallel {self.parallel}"]
             else:
-                build_args += [f"--parallel={cpu_count}"]
+                build_args += [f"--parallel {cpu_count}"]
         print("CMake args:", cmake_args)
         build_temp = Path(ext.sourcedir) / "build"
         if not build_temp.exists():
